@@ -1,0 +1,487 @@
+:root {
+  color-scheme: light;
+  --paper: #f6ecd7;
+  --paper-dark: #ead5b1;
+  --ink: #1c1510;
+  --accent: #b24a2d;
+  --accent-dark: #6f2a1b;
+  --teal: #1f5e66;
+  --shadow: rgba(24, 16, 10, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(1200px 800px at 10% -10%, rgba(255, 255, 255, 0.85), rgba(246, 228, 194, 0.4) 60%),
+    radial-gradient(900px 600px at 90% 10%, rgba(255, 237, 205, 0.65), transparent 65%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(59, 44, 33, 0.08) 0,
+      rgba(59, 44, 33, 0.08) 1px,
+      transparent 1px,
+      transparent 26px
+    );
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 0),
+    radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 0);
+  background-size: 120px 120px, 60px 60px;
+  background-position: 0 0, 20px 40px;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: -1;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 56px 6vw 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.hero {
+  display: flex;
+  gap: 36px;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  max-width: 640px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(25, 18, 12, 0.2);
+  background: rgba(255, 255, 255, 0.5);
+  font-family: "Cinzel", serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-family: "IM Fell English SC", serif;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  letter-spacing: 0.06em;
+  margin: 0 0 12px;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+  color: rgba(28, 21, 16, 0.78);
+}
+
+.hero-card {
+  min-width: 220px;
+  align-self: stretch;
+  display: grid;
+  place-items: center;
+}
+
+.hero-card-inner {
+  width: 100%;
+  padding: 20px 26px;
+  border-radius: 24px;
+  border: 2px solid rgba(33, 24, 17, 0.2);
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.8), rgba(240, 224, 198, 0.7));
+  box-shadow: 0 18px 40px rgba(63, 44, 26, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+  position: relative;
+  transform: perspective(600px) rotateY(-6deg);
+}
+
+.hero-label {
+  font-family: "Cinzel", serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+}
+
+.hero-card strong {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.hero-sub {
+  font-size: 0.85rem;
+  color: rgba(28, 21, 16, 0.65);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(31, 19, 12, 0.2);
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 12px 24px rgba(59, 41, 24, 0.18);
+  backdrop-filter: blur(8px);
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 260px;
+  flex: 1;
+}
+
+.search span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(28, 21, 16, 0.6);
+}
+
+.search input {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(28, 21, 16, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  font-family: "Space Grotesk", sans-serif;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(178, 74, 45, 0.2);
+}
+
+.pill {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(28, 21, 16, 0.2);
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 28px;
+}
+
+.card {
+  position: relative;
+  padding: 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(28, 21, 16, 0.2);
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 16px 30px rgba(57, 40, 24, 0.2);
+  transform-style: preserve-3d;
+  transform: perspective(900px) rotateX(var(--rx, 0deg))
+    rotateY(var(--ry, 0deg)) rotateZ(var(--float, 0deg));
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  content-visibility: auto;
+  contain-intrinsic-size: 320px 480px;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: radial-gradient(
+    circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.7),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.card:hover {
+  box-shadow: 0 24px 50px rgba(57, 40, 24, 0.3);
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+.poster-frame {
+  position: relative;
+  border-radius: 16px;
+  padding: 10px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(231, 216, 190, 0.6));
+  box-shadow: inset 0 0 0 1px rgba(57, 40, 24, 0.1);
+  transform: translateZ(28px);
+}
+
+.poster-frame img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  background: rgba(235, 221, 199, 0.6);
+  box-shadow: 0 12px 20px var(--shadow);
+}
+
+.card-meta {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.card-meta h3 {
+  margin: 0 0 6px;
+  font-family: "Cinzel", serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.2em;
+}
+
+.card-meta p {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(28, 21, 16, 0.6);
+}
+
+.empty {
+  grid-column: 1 / -1;
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px dashed rgba(28, 21, 16, 0.3);
+  background: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+.empty h2 {
+  margin: 0 0 10px;
+  font-family: "IM Fell English SC", serif;
+  font-size: 2rem;
+}
+
+.empty p {
+  margin: 0;
+  color: rgba(28, 21, 16, 0.7);
+}
+
+.footer {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(28, 21, 16, 0.65);
+  text-align: center;
+  margin-top: 24px;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 14, 9, 0.6);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+.modal-card {
+  width: min(980px, 94vw);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(238, 220, 193, 0.92));
+  box-shadow: 0 30px 60px rgba(25, 17, 10, 0.35);
+  position: relative;
+  padding: 24px;
+  transform: perspective(900px) rotateX(4deg);
+  animation: modal-in 0.35s ease;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: 1px solid rgba(31, 19, 12, 0.25);
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(260px, 1.2fr);
+  gap: 24px;
+  align-items: center;
+}
+
+.modal-poster img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 18px 30px rgba(39, 27, 17, 0.3);
+  display: block;
+}
+
+.modal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal-eyebrow {
+  font-family: "Cinzel", serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+}
+
+.modal-info h2 {
+  margin: 0;
+  font-family: "IM Fell English SC", serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.modal-info dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px 18px;
+}
+
+.modal-info dt {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(28, 21, 16, 0.55);
+  margin-bottom: 4px;
+}
+
+.modal-info dd {
+  margin: 0;
+  font-size: 1rem;
+  color: rgba(28, 21, 16, 0.85);
+}
+
+.modal-note {
+  margin: 0;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(31, 19, 12, 0.15);
+}
+
+.modal-empty {
+  margin: 0;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px dashed rgba(31, 19, 12, 0.2);
+  color: rgba(28, 21, 16, 0.75);
+}
+
+.modal-file {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(28, 21, 16, 0.5);
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 720px) {
+  .app {
+    padding: 40px 6vw 60px;
+  }
+
+  .hero {
+    align-items: flex-start;
+  }
+
+  .hero-card-inner {
+    transform: none;
+  }
+
+  .controls {
+    padding: 14px;
+  }
+
+  .modal-card {
+    padding: 18px;
+  }
+
+  .modal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-close {
+    position: static;
+    align-self: flex-end;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .hero-card-inner {
+    transition: none;
+    transform: none;
+  }
+
+  .card::after {
+    transition: none;
+  }
+}
