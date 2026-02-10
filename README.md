@@ -2,7 +2,7 @@
 
 A single-page React notebook that showcases **all One Piece wanted posters** in a cinematic, 3D tilt gallery. Posters are stored locally and displayed in a dense, beautiful grid with fast search and a detailed info modal.
 
-![Application Screenshot](docs/screenshot.png)
+
 
 ## Features
 - All wanted posters stored locally in `public/posters`
